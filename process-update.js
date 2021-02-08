@@ -19,6 +19,9 @@ var applyOptions = {
   ignoreDeclined: true,
   ignoreErrored: true,
   onUnaccepted: function (data) {
+    if (typeof window !== 'undefined') {
+      window.location.reload()
+    }
     console.warn(
       'Ignored an update to unaccepted module ' + data.chain.join(' -> ')
     );
